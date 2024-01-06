@@ -161,7 +161,7 @@ sthread_t *sthread_create(void (*thread_func)(void*), void *userdata)
 }
 
 /* TODO/FIXME - this needs to be implemented for Switch/3DS */
-#if !defined(SWITCH) && !defined(USE_WIN32_THREADS) && !defined(_3DS) && !defined(GEKKO) && !defined(__HAIKU__) && !defined(EMSCRIPTEN)
+#if !defined(SWITCH) && !defined(USE_WIN32_THREADS) && !defined(_3DS) && !defined(GEKKO) && !defined(__HAIKU__) && !defined(EMSCRIPTEN) && !defined(SF2000)
 #define HAVE_THREAD_ATTR
 #endif
 
@@ -872,7 +872,7 @@ bool scond_wait_timeout(scond_t *cond, slock_t *lock, int64_t timeout_us)
    int tickms = ps2_clock();
    now.tv_sec = tickms/1000;
    now.tv_nsec = tickms * 1000;
-#elif defined(__mips__) || defined(VITA) || defined(_3DS)
+#elif defined(__mips__) || defined(VITA) || defined(_3DS) || defined(SF2000)
    struct timeval tm;
 
    gettimeofday(&tm, NULL);
