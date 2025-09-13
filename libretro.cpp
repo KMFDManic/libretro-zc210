@@ -112,8 +112,8 @@ void retro_set_controller_port_device(unsigned port, unsigned device)
 void retro_get_system_info(struct retro_system_info *info)
 {
    memset(info, 0, sizeof(*info));
-   info->library_name     = "Zelda Classic v2.10";
-   info->library_version  = "Beta 5";
+   info->library_name     = "ZQuest Xtreme";
+   info->library_version  = "v2.10";
    info->need_fullpath    = true;
    info->valid_extensions = "qst";
 }
